@@ -3,4 +3,5 @@ namespace Dev.SharedKernel.Interfaces;
 // Repositories will only work with aggregate roots, not their children
 public interface IAggregateRoot
 {
+    public Guid Id { get; set; }
 }

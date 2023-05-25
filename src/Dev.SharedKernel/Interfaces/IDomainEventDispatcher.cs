@@ -2,5 +2,5 @@ namespace Dev.SharedKernel.Interfaces;
 
 public interface IDomainEventDispatcher
 {
-    Task DispatchAndClearEvents(IEnumerable<EntityBase> entitiesWithEvents);
+    Task DispatchAndClearEvents(IEnumerable<BaseEntity> entitiesWithEvents);
 }

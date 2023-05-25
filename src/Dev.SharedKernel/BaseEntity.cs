@@ -1,10 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dev.SharedKernel;
-public abstract class EntityBase
+public abstract class BaseEntity
 {
-    public Guid Id { get; set; }
-
     private List<DomainEventBase> _domainEvents = new();
     [NotMapped]
     public IEnumerable<DomainEventBase> DomainEvents => _domainEvents.AsReadOnly();
@@ -12,7 +10,7 @@ public abstract class EntityBase
     protected void RegisterDomainEvent(DomainEventBase domainEvent) => _domainEvents.Add(domainEvent);
     internal void ClearDomainEvents() => _domainEvents.Clear();
 
-    public void CopyValues<TEntity>(TEntity source, TEntity target) where TEntity : EntityBase
+    public void CopyValues<TEntity>(TEntity source, TEntity target) where TEntity : BaseEntity
     {
         Type t = typeof(TEntity);
 

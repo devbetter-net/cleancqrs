@@ -30,4 +30,5 @@ public class DevContext : DbContext
     {
         return Database.GenerateCreateScript();
     }
+
 }
